@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez Bonifacio Restaurant Grillade à Saint-Ghislain. Saveurs méditerranéennes, grillades au feu de bois et spécialités italiennes. Réservez votre table en ligne !">
+    <meta name="keywords" content="Bonifacio, restaurant Saint-Ghislain, restaurant italien, grillades Saint-Ghislain, restaurant rue d'ath">
+    <title>Bonifacio Restaurant Grillade | Saveurs Méditerranéennes Saint-Ghislain</title>
+    
+    <!-- Polices Google Fonts pour un look élégant -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- DONNÉES STRUCTURÉES (SEO GOOGLE) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItalianRestaurant",
+      "name": "Bonifacio Restaurant Grillade",
+      "image": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1000",
+      "telephone": "065623500",
+      "url": "https://www.votre-nom-de-domaine.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rue d'Ath n° 17",
+        "addressLocality": "Saint-Ghislain",
+        "postalCode": "7330",
+        "addressCountry": "BE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "50.4485", 
+        "longitude": "3.8206"
+      },
+      "servesCuisine": ["Italian", "Mediterranean", "Grill"],
+      "priceRange": "$$"
+    }
+    </script>
+
+    <style>
+        /* Couleurs et Variables */
+        :root {
+            --gold: #c5a880;
+            --dark: #12161a;
+            --light: #f8f9fa;
+            --grey: #222831;
+            --text-muted: #a0a0a0;
+        }
+
+        /* Reset de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, .nav-logo {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: rgba(18, 22, 26, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+        }
+
+        .nav-logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            color: var(--light);
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        .nav-links li a:hover {
+            color: var(--gold);
+        }
+
+        /* Section Hero (Accueil) */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1920') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .btn {
+            background-color: var(--gold);
+            color: var(--dark);
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #b3956b;
+            transform: translateY(-2px);
+        }
+
+        /* Sections Générales */
+        section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--gold);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background-color: var(--gold);
+            margin: 15px auto 0;
+        }
+
+        /* Carte / Menu Design Placé */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 40px;
+        }
+
+        .menu-category h3 {
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-bottom: 25px;
+            border-bottom: 1px solid rgba(197, 168, 128, 0.2);
+            padding-bottom: 10px;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            background: var(--grey);
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 3px solid var(--gold);
+        }
+
+        .menu-item-info {
+            padding-right: 20px;
+        }
+
+        .menu-item-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .menu-item-description {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 5px;
+        }
+
+        .menu-item-price {
+            font-family: 'Playfair Display', serif;
+            font-weight: bold;
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        /* Formulaire de Réservation */
+        .booking-container {
+            background-color: var(--grey);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .form-grid { grid-template-columns: 1fr; }
+            .menu-grid { grid-template-columns: 1fr; }
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .form-group label {
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: var(--gold);
+        }
+
+        .form-group input, .form-group select {
+            background-color: var(--dark);
+            border: 1px solid #444;
+            padding: 12px;
+            color: #fff;
+            font-family: inherit;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        /* Option masquée/désactivée */
+        select option:disabled {
+            color: #555;
+            background-color: #1a1a1a;
+        }
+
+        /* Style spécifique pour la case date pour inclure l'icône calendrier */
+        .date-wrapper {
+            position: relative;
+        }
+        
+        .date-wrapper input {
+            padding-right: 40px;
+            cursor: pointer;
+        }
+
+        .date-wrapper i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gold);
+            pointer-events: none;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--gold);
+            outline: none;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: var(--gold);
+            color: var(--dark);
+            border: none;
+            padding: 15px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .btn-submit:disabled {
+            background-color: #555;
+            color: #aaa;
+            cursor: not-allowed;
+        }
+
+        .btn-submit:hover:not(:disabled) {
+            background-color: #b3956b;
+        }
+
+        /* Infos & Accès */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .info-details i {
+            color: var(--gold);
+            margin-right: 15px;
+            width: 20px;
+        }
+
+        .info-details p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 300px;
+            background-color: #333;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0d1013;
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            border-top: 1px solid #222;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barre de Navigation -->
+    <nav>
+        <a href="#" class="nav-logo">Bonifacio</a>
+        <ul class="nav-links">
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#carte">La Carte</a></li>
+            <li><a href="#reservation">Réservations</a></li>
+            <li><a href="#contact">Infos & Accès</a></li>
+        </ul>
+    </nav>
+
+    <!-- Accueil -->
+    <header id="accueil" class="hero">
+        <h1>Bonifacio Restaurant Grillade</h1>
+        <p>Saveurs Méditerranéennes</p>
+        <a href="#reservation" class="btn"><i class="fa-regular fa-calendar-days"></i> Réserver une table</a>
+    </header>
+
+    <!-- Section Carte (Prête à remplir) -->
+    <section id="carte">
+        <h2 class="section-title">Notre Carte</h2>
+        <div class="menu-grid">
+            
+            <!-- Catégorie 1 -->
+            <div class="menu-category">
+                <h3><i class="fa-solid fa-utensils"></i> Entrées / Antipasti</h3>
+                
+                <!-- Item 1 -->
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Exemple : Bruschetta al Pomodoro</div>
+                        <div class="menu-item-description">Pain grillé, tomates fraîches, ail, basilic et huile d'olive.</div>
+                    </div>
+                    <div class="menu-item-price">12.00€</div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Exemple : Carpaccio de Bœuf</div>
+                        <div class="menu-item-description">Fines tranches de bœuf, copeaux de parmesan, roquette.</div>
+                    </div>
+                    <div class="menu-item-price">16.50€</div>
+                </div>
+            </div>
+
+            <!-- Catégorie 2 -->
+            <div class="menu-category">
+                <h3><i class="fa-solid fa-fire-burner"></i> Nos Grillades au Feu de Bois</h3>
+                
+                <!-- Item 1 -->
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Exemple : Tagliata de Bœuf</div>
+                        <div class="menu-item-description">Grillade tendre façon italienne avec légumes méditerranéens.</div>
+                    </div>
+                    <div class="menu-item-price">24.00€</div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <div class="menu-item-name">Exemple : Côte d'Agneau Grillée</div>
+                        <div class="menu-item-description">Aux herbes de Provence et romarin frais.</div>
+                    </div>
+                    <div class="menu-item-price">22.00€</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section Réservation -->
+    <section id="reservation">
+        <h2 class="section-title">Réserver une table</h2>
+        <div class="booking-container">
+            <form id="form-reservation" onsubmit="envoyerReservation(event)">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="nom">Nom complet</label>
+                        <input type="text" id="nom" required placeholder="Votre nom">
+                    </div>
+                    <div class="form-group">
+                        <label for="telephone">Téléphone</label>
+                        <input type="tel" id="telephone" required placeholder="Ex: 04XX XX XX XX">
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date de réservation</label>
+                        <div class="date-wrapper">
+                            <input type="date" id="date" required onclick="this.showPicker()" onchange="filtrerHeuresPassées()">
+                            <i class="fa-regular fa-calendar-days"></i>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="heure">Heure</label>
+                        <select id="heure" required>
+                            <option value="">Choisir une heure</option>
+                            <optgroup label="Service Midi" id="group-midi">
+                                <option value="12:00">12:00</option>
+                                <option value="12:30">12:30</option>
+                                <option value="13:00">13:00</option>
+                                <option value="13:30">13:30</option>
+                            </optgroup>
+                            <optgroup label="Service Soir" id="group-soir">
+                                <option value="18:30">18:30</option>
+                                <option value="19:00">19:00</option>
+                                <option value="19:30">19:30</option>
+                                <option value="20:00">20:00</option>
+                                <option value="20:30">20:30</option>
+                                <option value="21:00">21:00</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="convives">Nombre de personnes</label>
+                        <select id="convives" required>
+                            <option value="1">1 personne</option>
+                            <option value="2" selected>2 personnes</option>
+                            <option value="3">3 personnes</option>
+                            <option value="4">4 personnes</option>
+                            <option value="5">5 personnes</option>
+                            <option value="6">6 personnes</option>
+                            <option value="7+">Plus de 6 (Préciser en note)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">Demande spéciale (Optionnel)</label>
+                        <input type="text" id="notes" placeholder="Ex: Chaise bébé, allergie...">
+                    </div>
+                </div>
+                <button type="submit" class="btn-submit">Confirmer la demande de réservation</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Section Infos & Accès -->
+    <section id="contact">
+        <h2 class="section-title">Informations & Accès</h2>
+        <div class="info-grid">
+            <div class="info-details">
+                <p><i class="fa-solid fa-location-dot"></i> Rue d' Ath n° 17, 7330 Saint-Ghislain, Belgique</p>
+                <p><i class="fa-solid fa-phone"></i> <a href="tel:065623500" style="color:inherit; text-decoration:none;">065 623 500</a></p>
+                <p><i class="fa-solid fa-clock"></i> Lun - Dim : 12h00 - 14h30 / 18h30 - 22h30</p>
+                <p><i class="fa-solid fa-pizza-slice"></i> Spécialités : Cuisine Italienne, Grillades & Saveurs Méditerranéennes.</p>
+            </div>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2532.551690065275!2d3.81803567705497!3d50.51522047161042!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c24f94b8e0b677%3A0x6b64d39be1900115!2sRue%20d&#39;Ath%2017%2C%207330%20Saint-Ghislain!5e0!3m2!1sfr!2sbe!4v1710000000000!5m2!1sfr!2sbe" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>&copy; 2026 Bonifacio Restaurant Grillade - Tous droits réservés.</p>
+    </footer>
+
+    <!-- Script pour la logique de réservation et liaison Google Calendar -->
+    <script>
+        // Sécurité calendrier : Empêcher de choisir une date passée
+        const aujourdhuiDate = new Date();
+        const yyyy = aujourdhuiDate.getFullYear();
+        const mm = String(aujourdhuiDate.getMonth() + 1).padStart(2, '0');
+        const dd = String(aujourdhuiDate.getDate()).padStart(2, '0');
+        const dateStringAujourdhui = `${yyyy}-${mm}-${dd}`;
+        
+        document.getElementById('date').setAttribute('min', dateStringAujourdhui);
+
+        // Nouvelle fonction de filtrage des heures passées en temps réel
+        function filtrerHeuresPassées() {
+            const dateSelectionnee = document.getElementById('date').value;
+            const selectHeure = document.getElementById('heure');
+            const options = selectHeure.querySelectorAll('option');
+            
+            // Si l'utilisateur choisit aujourd'hui, on filtre
+            if (dateSelectionnee === dateStringAujourdhui) {
+                const maintenant = new Date();
+                const heureActuelle = maintenant.getHours();
+                const minuteActuelle = maintenant.getMinutes();
+
+                options.forEach(option => {
+                    if (option.value === "") return; // Ignorer l'option par défaut
+
+                    // On découpe la valeur (ex: "12:30" -> heure: 12, minute: 30)
+                    const [hOption, mOption] = option.value.split(':').map(Number);
+
+                    // Si l'heure de l'option est inférieure ou égale à l'heure courante (avec marge)
+                    if (hOption < heureActuelle || (hOption === heureActuelle && mOption <= minuteActuelle)) {
+                        option.disabled = true;
+                        // Si l'option actuellement sélectionnée vient d'être désactivée, on réinitialise le choix
+                        if (selectHeure.value === option.value) {
+                            selectHeure.value = "";
+                        }
+                    } else {
+                        option.disabled = false;
+                    }
+                });
+            } else {
+                // Si c'est un autre jour, on réactive tout
+                options.forEach(option => option.disabled = false);
+            }
+        }
+
+        function envoyerReservation(event) {
+            event.preventDefault();
+            
+            const btn = event.target.querySelector('.btn-submit');
+            btn.innerText = "Envoi en cours...";
+            btn.disabled = true;
+
+            const formData = {
+                nom: document.getElementById('nom').value,
+                telephone: document.getElementById('telephone').value,
+                date: document.getElementById('date').value,
+                heure: document.getElementById('heure').value,
+                convives: document.getElementById('convives').value,
+                notes: document.getElementById('notes').value
+            };
+
+            // URL générée via Google Apps Script (Remets bien ton lien ici)
+            const urlScript = "https://script.google.com/macros/s/AKfycbwaUOZgt_N0VjXMfA22XioIApz90mDD6HoDK-SK_--_QLxsST5jF8wMYuwRL3l_Cg/exec";
+
+            const params = new URLSearchParams();
+            params.append('nom', formData.nom);
+            params.append('telephone', formData.telephone);
+            params.append('date', formData.date);
+            params.append('heure', formData.heure);
+            params.append('convives', formData.convives);
+            params.append('notes', formData.notes);
+
+            fetch(urlScript, {
+                method: 'POST',
+                body: params,
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            })
+            .then(() => {
+                alert(`Merci ${formData.nom} !\nVotre demande de réservation pour ${formData.convives} personne(s) le ${formData.date} à ${formData.heure} a bien été transmise et ajoutée à notre agenda.`);
+                document.getElementById('form-reservation').reset();
+                btn.innerText = "Confirmer la demande de réservation";
+                btn.disabled = false;
+            })
+            .catch(error => {
+                alert("Une erreur technique est survenue. Pour garantir votre table, merci de nous contacter directement par téléphone au 065 623 500.");
+                console.error('Erreur de liaison Google Calendar:', error);
+                btn.innerText = "Confirmer la demande de réservation";
+                btn.disabled = false;
+            });
+        }
+    </script>
+</body>
+</html>
